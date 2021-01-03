@@ -29,8 +29,11 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   curved_navigation_bar: ^0.3.4
-  badges:
   font_awesome_flutter:
+  badges: ^1.1.6
+  clipboard: ^0.1.2+8
+
+
 
 dev_dependencies:
   flutter_test:
