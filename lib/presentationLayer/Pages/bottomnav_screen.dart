@@ -1,3 +1,4 @@
+import 'package:copoun/presentationLayer/Pages/matager.dart';
 import 'package:flutter/material.dart';
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
 
@@ -25,7 +26,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   List<Widget> _screens = [
     HomeScreen(),
-    Favourite_Screen(),
+    Matager(),
     Favourite_Screen(),
     Favourite_Screen(),
     HomeScreen()
@@ -38,11 +39,25 @@ class _BottomNavBarState extends State<BottomNavBar> {
     });
   }
 
-  void _onItemTapped(int selectedIndex) {
+  void onItemTapped(int selectedIndex) {
     print('selectedIndex $selectedIndex');
     _pageController.jumpToPage(selectedIndex);
   }
 
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      body: Stack(
+        children: [
+          DrawerScreen(),
+          HomeScreen(),
+        ],
+      ),
+    );
+  }
+}
+
+/*
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -51,11 +66,31 @@ class _BottomNavBarState extends State<BottomNavBar> {
         index: 2,
         height: 50.0,
         items: <Widget>[
-          Icon(Icons.add, size: 30),
-          Icon(Icons.list, size: 30),
-          Icon(Icons.compare_arrows, size: 30),
-          Icon(Icons.call_split, size: 30),
-          Icon(Icons.perm_identity, size: 30),
+          Column(
+            children: [
+              Icon(Icons.home, size: 30),Text("الرئيسية"),
+            ],
+          ),
+           Column(
+            children: [
+              Icon(Icons.home, size: 30),Text("المتاجر"),
+            ],
+          ),
+           Column(
+            children: [
+              Icon(Icons.home, size: 30),Text("المفضلة"),
+            ],
+          ),
+           Column(
+            children: [
+              Icon(Icons.home, size: 30),Text("كل الكوبونات"),
+            ],
+          ),
+           Column(
+            children: [
+              Icon(Icons.home, size: 30),Text("الاعدادات"),
+            ],
+          ),
         ],
         color: Colors.white,
         buttonBackgroundColor: Colors.white,
@@ -79,5 +114,6 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ],
       ),
     );
-  }
-}
+  }*/
+//}
+
