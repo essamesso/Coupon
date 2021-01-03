@@ -1,3 +1,4 @@
+import 'package:copoun/presentationLayer/Pages/allnewcoupon_screen.dart';
 import 'package:flutter/material.dart';
 
 class Coupons_Offers extends StatefulWidget {
@@ -60,7 +61,11 @@ class _Coupons_OffersState extends State<Coupons_Offers> {
                         child: Text('احصل على الكوبون ',
                             style: TextStyle(
                                 fontSize: 18, fontWeight: FontWeight.bold))),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                      NewCouponScreen()
+                      ));
+                    },
                   ),
                 )
               ],
