@@ -7,7 +7,7 @@ class BottomNav extends StatelessWidget {
     final Size size = MediaQuery.of(context).size;
 
     return Positioned(
-      bottom: 1,
+      bottom: 0,
       child: Container(
         width: size.width,
         height: 60,

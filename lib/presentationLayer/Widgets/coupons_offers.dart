@@ -1,10 +1,8 @@
-<<<<<<< HEAD
-import 'package:copoun/presentationLayer/Pages/allnewcoupon_screen.dart';
-=======
 import 'package:badges/badges.dart';
+import 'package:copoun/presentationLayer/Pages/allnewcoupon_screen.dart';
+import 'package:copoun/presentationLayer/Pages/imageurl.dart';
 import 'package:copoun/presentationLayer/Widgets/advanceCustomAlert.dart';
 import 'package:clipboard/clipboard.dart';
->>>>>>> b5674eb627a9d25d811ff1e99ed8aa476fa77bb9
 import 'package:flutter/material.dart';
 
 class CouponsOffers extends StatefulWidget {
@@ -135,54 +133,13 @@ class _CouponsOffersState extends State<CouponsOffers> {
                           ],
                         ),
                       ],
-<<<<<<< HEAD
-                    ),
-                    Image.asset(
-                      'assets/images/logo.png',
-                      width: 100,
-                      height: 40,
-                    )
-                  ],
-                ),
-                Container(
-                  height: 1,
-                  width: double.infinity,
-                  color: Colors.black,
-                ),
-                Text(
-                  'خصم حتى 60% على منتاجات العناية بالشعر ',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
-                Text(
-                  'خصم حتى 60% على منتاجات العناية بالشعر ',
-                  style: TextStyle(fontSize: 14),
-                ),
-                Container(
-                  width: MediaQuery.of(context).size.width/2,
-                  height: 35,
-                  child: RaisedButton(
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(12)),
-                    color: Colors.greenAccent,
-                    child: Center(
-                        child: Text('احصل على الكوبون ',
-                            style: TextStyle(
-                                fontSize: 18, fontWeight: FontWeight.bold))),
-                    onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder: (context)=>
-                      NewCouponScreen()
-                      ));
-                    },
-                  ),
-                )
-              ],
-            )),
-      ),
-      onTap: () {},
-=======
                     )),
               ),
-              onTap: () {},
+              onTap: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>
+                ImageUrl()
+                ));
+              },
             ),
             Positioned(
               top: -2,
@@ -199,7 +156,6 @@ class _CouponsOffersState extends State<CouponsOffers> {
           ],
         ),
       ],
->>>>>>> b5674eb627a9d25d811ff1e99ed8aa476fa77bb9
     );
   }
 }
