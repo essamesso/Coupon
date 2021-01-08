@@ -1,7 +1,5 @@
 import 'package:copoun/presentationLayer/Pages/matager.dart';
 import 'package:flutter/material.dart';
-import 'package:curved_navigation_bar/curved_navigation_bar.dart';
-
 import 'drawer_screen.dart';
 import 'favourite_screen.dart';
 import 'home.dart';
@@ -27,8 +25,8 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<Widget> _screens = [
     HomeScreen(),
     Matager(),
-    Favourite_Screen(),
-    Favourite_Screen(),
+    FavouriteScreen(),
+    FavouriteScreen(),
     HomeScreen()
   ];
 

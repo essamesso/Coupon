@@ -1,6 +1,4 @@
-import 'package:copoun/DataLayer/Models/CouponsDataModel.dart';
 import 'package:copoun/DataLayer/Models/NewCouponmodel.dart';
-import 'package:copoun/DataLayer/Models/urlimagemodel.dart';
 import 'package:copoun/configuration.dart';
 import 'dart:convert';
 
@@ -8,12 +6,12 @@ import 'package:http/http.dart';
 
 class NewCouponServices {
   List<NewCoupon> categories;
-  String imageurls;
+ // String imageurls;
 
-  Future<String> getimageurl() async {
+ /* Future<String> getimageurl(String url) async {
     if (imageurls == null) {
       Response response =
-          await get('https://couponava.com/wp-json/wp/v2/media/818');
+          await get(url);
       final body = json.decode(response.body);
       if (response.statusCode == 200) {
         imageurls = URLimageurlmodel.fromJson(body).guid.rendered;
@@ -24,7 +22,7 @@ class NewCouponServices {
     } else {
       return imageurls;
     }
-  }
+  }*/
 
   Future<List<NewCoupon>> getnewcoupon() async {
     if (categories == null) {

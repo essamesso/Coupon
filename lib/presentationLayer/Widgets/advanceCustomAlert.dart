@@ -1,6 +1,8 @@
+import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 
 class AdvanceCustomAlert extends StatelessWidget {
+  final String text = "mmz010";
   @override
   Widget build(BuildContext context) {
     return Dialog(
@@ -22,29 +24,69 @@ class AdvanceCustomAlert extends StatelessWidget {
                   Text('احصل علي خصم 25% لجميع المنتجات الخاصة بنا من خلال هذا الكود',
                    style: TextStyle(fontSize: 14),),
                   SizedBox(height: 5,),
-                  RaisedButton(onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                    color: Colors.grey[400],
-                    child: Text('MMZ010', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold ),),
-                  ),
-                  RaisedButton(onPressed: () {
-                    Navigator.of(context).pop();
-                  },
-                    color: Colors.redAccent,
-                    child: Text('اذهب الي المتجر', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold ),),
+
+                  Container(
+                                width: MediaQuery.of(context).size.width / 3,
+                                height: 35,
+                                decoration: BoxDecoration(
+                                    image: DecorationImage(
+                                        image: AssetImage(
+                                            "assets/images/copy.jpg"),
+                                        fit: BoxFit.fill)),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  children: [
+                                    InkWell(
+                                      child: Text(text),
+                                      onTap: () async {
+                                        await FlutterClipboard.copy(text);
+                                        Scaffold.of(context).showSnackBar(
+                                          SnackBar(
+                                              content:
+                                                  Text("✓  تم نسخ كود الخصم")),
+                                        );
+                                      },
+                                    ),
+                                    IconButton(
+                                        icon: Icon(Icons.content_copy),
+                                        onPressed: () async {
+                                          await FlutterClipboard.copy(text);
+                                          Scaffold.of(context).showSnackBar(
+                                            SnackBar(
+                                                content: Text(
+                                                    "✓  تم نسخ كود الخصم")),
+                                          );
+                                        })
+                                  ],
+                                ),
+                              ),
+
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8),
+                    child: InkWell(
+                                        child: Container(
+                                          width: MediaQuery.of(context).size.width / 3,
+                                  height: 35,
+                                  decoration: BoxDecoration(borderRadius: BorderRadius.circular(8), 
+                                  color: Colors.redAccent,),
+                        
+                        child: Center(child: Text('اذهب الي المتجر', style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold ),)),
+                      ),
+                      onTap: () {
+                        Navigator.of(context).pop();
+                      },
+                    ),
                   )
                 ],
               ),
             ),
           ),
           Positioned(
-            top: -60,
+            top: -50,
             child: CircleAvatar(
-              backgroundColor: Colors.redAccent,
-              radius: 60,
-              child: Icon(Icons.assistant_photo, color: Colors.white, size: 50,),
-            )
+                                backgroundImage:
+                                    AssetImage('assets/images/noon.jpg'),
+                                radius: 50),
           ),
         ],
       )

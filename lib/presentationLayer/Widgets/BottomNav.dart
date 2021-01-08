@@ -1,3 +1,6 @@
+import 'package:copoun/presentationLayer/Pages/favourite_screen.dart';
+import 'package:copoun/presentationLayer/Pages/home.dart';
+import 'package:copoun/presentationLayer/Pages/matager.dart';
 import 'package:copoun/presentationLayer/Widgets/BNBCustomPainter.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +23,12 @@ class BottomNav extends StatelessWidget {
             Center(
               heightFactor: 0.6,
               child: FloatingActionButton(
-                onPressed: () {},
+                onPressed: () {
+                   Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
+                },
                 backgroundColor: Colors.orange,
                 child: Icon(Icons.home),
                 elevation: 0.1,
@@ -34,11 +42,21 @@ class BottomNav extends StatelessWidget {
                 children: [
                   IconButton(
                     icon: Icon(Icons.favorite),
-                    onPressed: () {},
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => FavouriteScreen()));
+                    },
                   ),
                   IconButton(
                     icon: Icon(Icons.restaurant_menu),
-                    onPressed: () {},
+                    onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => Matager()));
+                    },
                   ),
                   Container(
                     width: size.width * 0.20,

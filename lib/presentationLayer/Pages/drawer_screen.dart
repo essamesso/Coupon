@@ -11,14 +11,16 @@ class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: primaryGreen,
+      color: Colors.grey[600],
       padding: EdgeInsets.only(top:50,bottom: 70,left: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Row(
             children: [
-              CircleAvatar(),
+              CircleAvatar(
+                backgroundColor: Colors.orange,
+              ),
               SizedBox(width: 10,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,15 +1,15 @@
 // To parse this JSON data, do
 //
-//     final newCoupon = newCouponFromJson(jsonString);
+//     final storeModel = storeModelFromJson(jsonString);
 
 import 'dart:convert';
 
-List<NewCoupon> newCouponFromJson(String str) => List<NewCoupon>.from(json.decode(str).map((x) => NewCoupon.fromJson(x)));
+List<StoreModel> storeModelFromJson(String str) => List<StoreModel>.from(json.decode(str).map((x) => StoreModel.fromJson(x)));
 
-String newCouponToJson(List<NewCoupon> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
+String storeModelToJson(List<StoreModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class NewCoupon {
-    NewCoupon({
+class StoreModel {
+    StoreModel({
         this.id,
         this.date,
         this.dateGmt,
@@ -61,7 +61,7 @@ class NewCoupon {
     String yoastHead;
     Links links;
 
-    factory NewCoupon.fromJson(Map<String, dynamic> json) => NewCoupon(
+    factory StoreModel.fromJson(Map<String, dynamic> json) => StoreModel(
         id: json["id"],
         date: DateTime.parse(json["date"]),
         dateGmt: DateTime.parse(json["date_gmt"]),
