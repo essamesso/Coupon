@@ -16,7 +16,7 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
         width: double.infinity,
         color: Colors.amber,
       ),
-        BottomNav(),
+        //BottomNav(),
         ],
       ),
           ),

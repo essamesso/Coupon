@@ -51,15 +51,15 @@ class GetCouponItems extends StatelessWidget {
                         Icon(Icons.favorite_border),
                       ],
                     ),
-                    CircleAvatar(
+                  /*  CircleAvatar(
                         radius: 25,
                         backgroundImage:NetworkImage(imageurl)
-                       ), //CircleAvat
-                    /*  Image.asset(
+                       ),*/ //CircleAvat
+                      Image.asset(
                       'assets/images/logo.png',
                       width: 100,
                       height: 40,
-                    ) */
+                    ) 
                   ],
                 ),
                 Container(

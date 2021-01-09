@@ -1,5 +1,5 @@
 import 'package:copoun/presentationLayer/Pages/favourite_screen.dart';
-import 'package:copoun/presentationLayer/Pages/home.dart';
+import 'package:copoun/presentationLayer/Pages/home/home.dart';
 import 'package:copoun/presentationLayer/Pages/matager.dart';
 import 'package:copoun/presentationLayer/Widgets/BNBCustomPainter.dart';
 import 'package:flutter/material.dart';
@@ -8,10 +8,7 @@ class BottomNav extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-
-    return Positioned(
-      bottom: 0,
-      child: Container(
+    return  Container(
         width: size.width,
         height: 60,
         child: Stack(
@@ -74,7 +71,7 @@ class BottomNav extends StatelessWidget {
             )
           ],
         ),
-      ),
+      
     );
   }
 }
