@@ -17,7 +17,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
   PageController _pageController = PageController();
 
   List<Widget> _screens = [
-    HomeScreen(),
+    FavouriteScreen(),
     Matager(),
     HomeScreen(),
     FavouriteScreen(),
@@ -31,16 +31,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
   }
 
   void onItemTapped(int selectedIndex) {
-    print('selectedIndex $selectedIndex');
     _pageController.jumpToPage(selectedIndex);
   }
 
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
-    return Material(
-      color: Colors.transparent,
-      child: Stack(
+    return Scaffold(
+      body: Stack(
         fit: StackFit.expand,
         children: [
           DrawerScreen(),
@@ -114,63 +112,3 @@ class _BottomNavBarState extends State<BottomNavBar> {
     );
   }
 }
-
-/*
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: CurvedNavigationBar(
-        key: _bottomNavigationKey,
-        index: 2,
-        height: 50.0,
-        items: <Widget>[
-          Column(
-            children: [
-              Icon(Icons.home, size: 30),Text("الرئيسية"),
-            ],
-          ),
-           Column(
-            children: [
-              Icon(Icons.home, size: 30),Text("المتاجر"),
-            ],
-          ),
-           Column(
-            children: [
-              Icon(Icons.home, size: 30),Text("المفضلة"),
-            ],
-          ),
-           Column(
-            children: [
-              Icon(Icons.home, size: 30),Text("كل الكوبونات"),
-            ],
-          ),
-           Column(
-            children: [
-              Icon(Icons.home, size: 30),Text("الاعدادات"),
-            ],
-          ),
-        ],
-        color: Colors.white,
-        buttonBackgroundColor: Colors.white,
-        backgroundColor: Colors.grey[200],
-        animationCurve: Curves.easeInOut,
-        animationDuration: Duration(milliseconds: 600),
-        onTap: (int i) {
-          this._onItemTapped(i);
-        },
-      ),
-      body: Stack(
-        children: [
-          DrawerScreen(),
-          PageView(
-            controller: _pageController,
-            children: _screens,
-            onPageChanged: _onPagechanged,
-            physics: NeverScrollableScrollPhysics(),
-          ),
-          //HomeScreen()
-        ],
-      ),
-    );
-  }*/
-//}

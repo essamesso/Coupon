@@ -55,8 +55,6 @@ class _DrawerScreenState extends State<DrawerScreen> {
               Container(width: 2,height: 20,color: Colors.white,),
               SizedBox(width: 10,),
               Text('Log out',style:TextStyle(color: Colors.white,fontWeight: FontWeight.bold),)
-
-
             ],
 
           )

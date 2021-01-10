@@ -1,7 +1,6 @@
 import 'package:badges/badges.dart';
 import 'package:copoun/DataLayer/Models/NewCouponmodel.dart';
 import 'package:copoun/DataLayer/Services/newcouponservices.dart';
-import 'package:copoun/presentationLayer/Widgets/BottomNav.dart';
 import 'package:copoun/presentationLayer/Widgets/SearchPage.dart';
 import 'package:copoun/presentationLayer/Widgets/coupons_offers.dart';
 import 'package:flutter/cupertino.dart';
@@ -18,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;
-  int _page = 0;
   GlobalKey bottomNavigationKey = GlobalKey();
   bool isDrawerOpen = false;
   double topContainer = 0;
@@ -203,7 +201,6 @@ class _HomeScreenState extends State<HomeScreen> {
                     controller: controller, topContainer: topContainer),
               ],
             ),
-            BottomNav(),
           ],
         ),
       ),

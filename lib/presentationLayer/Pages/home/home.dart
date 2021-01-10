@@ -17,7 +17,6 @@ class _HomeScreenState extends State<HomeScreen> {
   double xOffset = 0;
   double yOffset = 0;
   double scaleFactor = 1;
-  int _page = 0;
   GlobalKey bottomNavigationKey = GlobalKey();
   bool isDrawerOpen = false;
   double topContainer = 0;
