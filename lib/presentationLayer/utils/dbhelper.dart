@@ -1,26 +1,26 @@
 import 'package:copoun/DataLayer/Models/coupondb.dart';
 import 'package:path/path.dart';
+import 'package:sqflite/sqflite.dart'as sql;
 import 'package:sqflite/sqflite.dart';
 
 class DbHelper{
   static final DbHelper _instance = DbHelper.internal();
   factory DbHelper() => _instance;
+  sql.Database db;
 
   DbHelper.internal();
-  static Database _db;
 
   Future<Database> createDatabase() async{
-    if(_db != null){
-      return _db;
+    if(db != null){
+      return db;
     }
     //define the path to the database
     String path = join(await getDatabasesPath(), 'coupon.db');
-    _db = await openDatabase(path,version: 1, onCreate: (Database db, int v){
+    db = await openDatabase(path,version: 1, onCreate: (Database db, int v){
       //create tables
-      db.execute('create table favouritecoupon(id integer primary key autoincrement, title varchar(100), code varchar(100), imageurl varchar(100), linksite varchar(100))');
-      
+      db.execute('create table favouritecoupon(id integer, title varchar(100), code varchar(100), imageurl varchar(100), linksite varchar(100))');
     });
-    return _db;
+    return db;
   }
 
 
@@ -29,8 +29,7 @@ class DbHelper{
     //db.rawInsert('insert into courses value')
     return db.insert('favouritecoupon', coupon.toMap());
   }
-
-
+  
   Future<List> allCoupon() async{
     Database db = await createDatabase();
     //db.rawQuery('select * from courses');

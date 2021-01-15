@@ -1,19 +1,16 @@
 import 'package:copoun/DataLayer/Models/coupondb.dart';
+import 'package:copoun/DataLayer/Provider/dataprovider%20.dart';
 import 'package:copoun/presentationLayer/Widgets/coupons_offers.dart';
 import 'package:copoun/presentationLayer/utils/dbhelper.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
-class FavouriteScreen extends StatefulWidget {
-  @override
-  _FavouriteScreenState createState() => _FavouriteScreenState();
-}
-
-class _FavouriteScreenState extends State<FavouriteScreen> {
-  DbHelper helper;
+class FavouriteScreen extends StatelessWidget {
+  /*DbHelper helper;
   List allCoupon = new List();
-  var filteredCoupon = List();
+  List filteredCoupon = List();
 
-  void getCourses() {
+  void getCoupons() {
     helper.allCoupon().then((courses) {
       setState(() {
         allCoupon = courses;
@@ -25,26 +22,28 @@ class _FavouriteScreenState extends State<FavouriteScreen> {
   @override
   void initState() {
     super.initState();
-    helper = DbHelper();
-    getCourses();
   }
-
+*/
   @override
   Widget build(BuildContext context) {
+    var providercoupons = Provider.of<DataProvider>(context);
+    print('>>>>esas>>>>>> ${providercoupons.items}');
     return Scaffold(
-        body: SafeArea(
-      child: filteredCoupon.length == 0
-          ? Center(child: Text("no data"))
+        body:  providercoupons.items.length == 0
+          ? Center(child: Text("NO Favourite Items Found",style: TextStyle(
+            fontSize: 20,
+            color:Colors.black
+          ),))
           : ListView.builder(
               padding: EdgeInsets.all(0.0),
               shrinkWrap: true,
-              itemCount: filteredCoupon.length,
+              itemCount: providercoupons.items.length,
               physics: BouncingScrollPhysics(),
               itemBuilder: (context, i) {
-                CouponModel coupons = CouponModel(filteredCoupon[i]);
-                return GetCouponItems(coupons: coupons, index: i);
+                return GetCouponItems(
+                    isfav: true, favcoupon: providercoupons.items[i]);
               },
-            ),
+            
     ));
   }
 }

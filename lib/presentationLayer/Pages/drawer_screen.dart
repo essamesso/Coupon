@@ -39,7 +39,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 children: [
                   Icon(element['icon'],color: Colors.white,size: 30,),
                   SizedBox(width: 10,),
-                  Text(element['title'],style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20))
+                  InkWell(
+                    onTap: (){
+                      print('sdssdsdsd');
+                    },
+                    child: Text(element['title'],style: TextStyle(color: Colors.white,fontWeight: FontWeight.bold,fontSize: 20)))
                 ],
 
               ),

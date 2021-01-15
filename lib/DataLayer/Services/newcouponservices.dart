@@ -6,23 +6,6 @@ import 'package:http/http.dart';
 
 class NewCouponServices {
   List<NewCoupon> categories;
- // String imageurls;
-
- /* Future<String> getimageurl(String url) async {
-    if (imageurls == null) {
-      Response response =
-          await get(url);
-      final body = json.decode(response.body);
-      if (response.statusCode == 200) {
-        imageurls = URLimageurlmodel.fromJson(body).guid.rendered;
-        return imageurls;
-      } else {
-        return imageurls = '';
-      }
-    } else {
-      return imageurls;
-    }
-  }*/
 
   Future<List<NewCoupon>> getnewcoupon() async {
     if (categories == null) {
@@ -32,27 +15,11 @@ class NewCouponServices {
         categories = (body as List).map((i) => NewCoupon.fromJson(i)).toList();
         return categories;
       } else {
+        //TODO handel error
         return categories = List();
       }
     } else {
       return categories;
     }
   }
-
-  /*Future<List<CouponsDataModel>> getdata() async {
-    if(datacoupons==null){
-    Future<List<NewCoupon>> titleandsubtitle = getnewcoupon();
-    Future<List<URLimageurlmodel>> imageurls=getimageurl() ;
-    if(titleandsubtitle!=null && imageurls!=null){
-      for(int i=0;i<titleandsubtitle.toString().length;i++ )
-      {
-        datacoupons.add(CouponsDataModel(title:titleandsubtitle[i].title.rendered ,image: imageurls[i].guid.rendered,subtitle:titleandsubtitle[i].content.rendered ));
-      }
-      return datacoupons;
-    }
-  }else{
-          return datacoupons;
-  }
-  
-  }*/
 }

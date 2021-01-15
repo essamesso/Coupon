@@ -18,7 +18,7 @@ class CouponModel {
         'id': _id,
         'title': _title,
         'code': _code,
-        'imageurl': _imageurl, 
+        'imageurl': _imageurl,
         'linksite':_linksite
       };
 
