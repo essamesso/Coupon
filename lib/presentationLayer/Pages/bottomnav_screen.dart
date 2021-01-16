@@ -1,6 +1,6 @@
 import 'package:copoun/presentationLayer/Pages/home/home.dart';
 import 'package:flutter/material.dart';
-import 'drawer_screen.dart';
+import 'Drawer/drawerScreen.dart';
 
 class BottomNavBar extends StatefulWidget {
   @override
@@ -8,16 +8,11 @@ class BottomNavBar extends StatefulWidget {
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [
-          DrawerScreen(),
-          HomeScreen()
-        ],
+        children: [DrawerScreen(), HomeScreen()],
       ),
     );
   }

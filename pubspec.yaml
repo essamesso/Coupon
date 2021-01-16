@@ -35,9 +35,13 @@ dependencies:
   badges: ^1.1.6
   clipboard: ^0.1.2+8
   search_widget: ^1.0.2
+  google_fonts: ^1.1.1
   firebase_core: "0.5.3"
   sqflite:
   path:
+  share: ^0.6.5+4
+  image_picker:
+  hive: ^1.4.1+1
 
 
 

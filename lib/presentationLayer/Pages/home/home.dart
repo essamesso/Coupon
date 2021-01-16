@@ -1,4 +1,5 @@
 import 'package:copoun/presentationLayer/Widgets/BNBCustomPainter.dart';
+import 'package:copoun/presentationLayer/Widgets/SearchPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -127,7 +128,12 @@ class _HomeScreenState
                               color: Colors.black.withOpacity(.8),
                               size: 32,
                             ),
-                            onPressed: () {}),
+                            onPressed: () {
+                              Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchPage()));
+                            }),
                   ],
                 ),
               ),
