@@ -1,6 +1,6 @@
-import 'package:copoun/presentationLayer/Pages/Maindark_lightMode.dart';
+import 'package:copoun/presentationLayer/Pages/favourite/favourite_screen.dart';
+import 'package:copoun/presentationLayer/Pages/lightanddarkmod/Maindark_lightMode.dart';
 import 'package:flutter/material.dart';
-import '../favourite_screen.dart';
 import 'contactUs.dart';
 import 'shareApp.dart';
 

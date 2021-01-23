@@ -1,6 +1,5 @@
+import 'package:copoun/presentationLayer/Pages/favourite/favourite_screen.dart';
 import 'package:flutter/material.dart';
-
-import '../favourite_screen.dart';
 
 class ContactUs extends StatefulWidget {
   @override

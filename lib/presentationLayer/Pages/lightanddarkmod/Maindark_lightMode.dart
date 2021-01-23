@@ -33,6 +33,3 @@ class _BuildDarkAndLightModeState extends State<BuildDarkAndLightMode> {
     );
   }
 }
-
-// Theme Data is saved on refresh or restart
-// App bar color also changes with theme

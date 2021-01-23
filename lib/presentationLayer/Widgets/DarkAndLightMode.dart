@@ -1,8 +1,7 @@
 
 import 'package:copoun/DataLayer/Components/z_animated_toggle.dart';
 import 'package:copoun/DataLayer/Models/themeprovider.dart';
-import 'package:copoun/main.dart';
-import 'package:copoun/presentationLayer/Pages/bottomnav_screen.dart';
+import 'package:copoun/presentationLayer/Pages/bottomnav/bottomnav_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -21,10 +20,9 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
   @override
   void initState() {
     _animationController =
-        AnimationController(vsync: this, duration: Duration(milliseconds: 800));
+        AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     super.initState();
   }
-
   // function to toggle circle animation
   changeThemeMode(bool theme) {
     if (!theme) {
@@ -33,7 +31,6 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
       _animationController.reverse(from: 1.0);
     }
   }
-
   @override
   Widget build(BuildContext context) {
     double height = MediaQuery.of(context).size.height;
@@ -152,22 +149,12 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
                           ),
                         ),
                       ),
+                      //____________________ on press >>>>> go 
                       RaisedButton(
                         onPressed: () {
-                           Navigator.push(context,MaterialPageRoute(builder: (context)=> RootMyApp()));
-                         /* _scaffoldKey.currentState.showSnackBar(
-                            SnackBar(
-                              content: Text(
-                                'Loved it? Give a star on Github',
-                                textAlign: TextAlign.center,
-                                style: TextStyle(
-                                  fontFamily: 'Rubik',
-                                  fontSize: width * 0.045,
-                                ),
-                              ),
-                            ),
-                          );*/
+                           Navigator.push(context,MaterialPageRoute(builder: (context)=> BottomNavBar()));
                         },
+
                         shape: CircleBorder(),
                         color: themeProvider.isLightTheme
                             ? const Color(0xFFFFFFFF)
@@ -192,7 +179,6 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
       ),
     );
   }
-
 // for drawing the dots
   Container buildDot({double width, double height, Color color}) {
     return Container(

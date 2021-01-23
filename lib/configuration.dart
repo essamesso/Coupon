@@ -3,12 +3,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 
 
-String api_url="https://couponava.com/wp-json/wp/v2/coupon";
+String apiurl="https://couponava.com/wp-json/wp/v2/coupon";
 
-Color primaryGreen = Color(0xff416d6d);
-List<BoxShadow> shadowList = [
-  BoxShadow(color: Colors.grey[300], blurRadius: 30, offset: Offset(0, 10))
-];
 
 const Map icons={
   'cart_icon': 'assets/images/shop.png',

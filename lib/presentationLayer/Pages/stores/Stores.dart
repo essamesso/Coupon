@@ -1,13 +1,13 @@
 import 'package:copoun/configuration.dart';
-import 'package:copoun/presentationLayer/Widgets/categoryCardMatager.dart';
+import 'package:copoun/presentationLayer/Widgets/categoryCardStores.dart';
 import 'package:flutter/material.dart';
 
-class Matager extends StatefulWidget {
+class Stores extends StatefulWidget {
   @override
-  _MatagerState createState() => _MatagerState();
+  _StoresState createState() => _StoresState();
 }
 
-class _MatagerState extends State<Matager> {
+class _StoresState extends State<Stores> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -52,7 +52,7 @@ class _MatagerState extends State<Matager> {
                 itemCount: 17,
                 scrollDirection: Axis.vertical,
                 itemBuilder: (context, index) {
-                  return CategoryCardMatager(
+                  return CategoryCardStores(
                     index: index,
                   );
                 },

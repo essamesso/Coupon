@@ -1,11 +1,10 @@
+import 'package:copoun/presentationLayer/Pages/favourite/favourite_screen.dart';
+import 'package:copoun/presentationLayer/Pages/stores/Stores.dart';
 import 'package:copoun/presentationLayer/Widgets/BNBCustomPainter.dart';
 import 'package:copoun/presentationLayer/Widgets/SearchPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
-import '../favourite_screen.dart';
-import '../matager.dart';
-import 'homewidgets.dart';
+import 'componants/homewidgets.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -29,7 +28,7 @@ class _HomeScreenState
   List<Widget> _screens = [
     HomeWidget(),
     FavouriteScreen(),
-    Matager(),
+    Stores(),
     FavouriteScreen(),
     HomeWidget()
   ];
@@ -56,7 +55,7 @@ class _HomeScreenState
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
         ..scale(scaleFactor)
         ..rotateY(isDrawerOpen ? -0.5 : 0),
-      duration: Duration(milliseconds: 100),
+      duration: Duration(milliseconds: 50),
       decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
@@ -109,8 +108,8 @@ class _HomeScreenState
                                 ),
                                 onPressed: () {
                                   setState(() {
-                                    xOffset = 180;
-                                    yOffset = 150;
+                                    xOffset = 190;
+                                    yOffset = 120;
                                     scaleFactor = .8;
                                     isDrawerOpen = true;
                                   });

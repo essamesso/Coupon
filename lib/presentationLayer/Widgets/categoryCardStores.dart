@@ -1,15 +1,15 @@
 import 'package:copoun/configuration.dart';
 import 'package:flutter/material.dart';
 
-class CategoryCardMatager extends StatefulWidget {
+class CategoryCardStores extends StatefulWidget {
   final int index;
-  CategoryCardMatager({this.index});
+  CategoryCardStores({this.index});
   @override
-  _CategoryCardMatagerState createState() =>
-      _CategoryCardMatagerState();
+  _CategoryCardStoresState createState() =>
+      _CategoryCardStoresState();
 }
 
-class _CategoryCardMatagerState extends State<CategoryCardMatager> {
+class _CategoryCardStoresState extends State<CategoryCardStores> {
   @override
   Widget build(BuildContext context) {
     return InkWell(

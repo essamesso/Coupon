@@ -9,7 +9,7 @@ class NewCouponServices {
 
   Future<List<NewCoupon>> getnewcoupon() async {
     if (categories == null) {
-      Response response = await get(api_url);
+      Response response = await get(apiurl);
       final body = json.decode(response.body);
       if (response.statusCode == 200) {
         categories = (body as List).map((i) => NewCoupon.fromJson(i)).toList();

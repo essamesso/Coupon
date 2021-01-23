@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../../../configuration.dart';
-import 'componants/listviewcoupon.dart';
+import '../../../../configuration.dart';
+import 'listviewcoupon.dart';
 class HomeWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
