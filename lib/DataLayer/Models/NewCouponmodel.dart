@@ -29,9 +29,12 @@ class NewCoupon {
         this.commentStatus,
         this.pingStatus,
         this.template,
+        this.meta,
         this.couponCategory,
         this.store,
         this.betterFeaturedImage,
+        this.wpcCouponTypeCode,
+        this.wpcDestinationUrl,
         this.yoastHead,
         this.links,
     });
@@ -55,9 +58,12 @@ class NewCoupon {
     CommentStatus commentStatus;
     PingStatus pingStatus;
     String template;
+    List<dynamic> meta;
     List<int> couponCategory;
     List<int> store;
     BetterFeaturedImage betterFeaturedImage;
+    String wpcCouponTypeCode;
+    String wpcDestinationUrl;
     String yoastHead;
     Links links;
 
@@ -81,9 +87,12 @@ class NewCoupon {
         commentStatus: commentStatusValues.map[json["comment_status"]],
         pingStatus: pingStatusValues.map[json["ping_status"]],
         template: json["template"],
+        meta: List<dynamic>.from(json["meta"].map((x) => x)),
         couponCategory: List<int>.from(json["coupon-category"].map((x) => x)),
         store: List<int>.from(json["store"].map((x) => x)),
         betterFeaturedImage: BetterFeaturedImage.fromJson(json["better_featured_image"]),
+        wpcCouponTypeCode: json["_wpc_coupon_type_code"],
+        wpcDestinationUrl: json["_wpc_destination_url"],
         yoastHead: json["yoast_head"],
         links: Links.fromJson(json["_links"]),
     );
@@ -108,9 +117,12 @@ class NewCoupon {
         "comment_status": commentStatusValues.reverse[commentStatus],
         "ping_status": pingStatusValues.reverse[pingStatus],
         "template": template,
+        "meta": List<dynamic>.from(meta.map((x) => x)),
         "coupon-category": List<dynamic>.from(couponCategory.map((x) => x)),
         "store": List<dynamic>.from(store.map((x) => x)),
         "better_featured_image": betterFeaturedImage.toJson(),
+        "_wpc_coupon_type_code": wpcCouponTypeCode,
+        "_wpc_destination_url": wpcDestinationUrl,
         "yoast_head": yoastHead,
         "_links": links.toJson(),
     };
@@ -144,7 +156,7 @@ class BetterFeaturedImage {
         description: json["description"],
         mediaType: mediaTypeValues.map[json["media_type"]],
         mediaDetails: MediaDetails.fromJson(json["media_details"]),
-        post: json["post"],
+        post: json["post"] == null ? null : json["post"],
         sourceUrl: json["source_url"],
     );
 
@@ -155,7 +167,7 @@ class BetterFeaturedImage {
         "description": description,
         "media_type": mediaTypeValues.reverse[mediaType],
         "media_details": mediaDetails.toJson(),
-        "post": post,
+        "post": post == null ? null : post,
         "source_url": sourceUrl,
     };
 }
@@ -263,12 +275,12 @@ class Sizes {
 
     factory Sizes.fromJson(Map<String, dynamic> json) => Sizes(
         thumbnail: Thumbnail.fromJson(json["thumbnail"]),
-        wpcouponSmallThumb: Thumbnail.fromJson(json["wpcoupon_small_thumb"]),
+        wpcouponSmallThumb: json["wpcoupon_small_thumb"] == null ? null : Thumbnail.fromJson(json["wpcoupon_small_thumb"]),
     );
 
     Map<String, dynamic> toJson() => {
         "thumbnail": thumbnail.toJson(),
-        "wpcoupon_small_thumb": wpcouponSmallThumb.toJson(),
+        "wpcoupon_small_thumb": wpcouponSmallThumb == null ? null : wpcouponSmallThumb.toJson(),
     };
 }
 

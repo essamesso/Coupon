@@ -1,10 +1,13 @@
+import 'package:copoun/DataLayer/Provider/themeprovider.dart';
 import 'package:copoun/presentationLayer/Pages/favourite/favourite_screen.dart';
 import 'package:copoun/presentationLayer/Pages/stores/Stores.dart';
 import 'package:copoun/presentationLayer/Widgets/BNBCustomPainter.dart';
 import 'package:copoun/presentationLayer/Widgets/SearchPage.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'componants/homewidgets.dart';
+
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -49,6 +52,7 @@ class _HomeScreenState
     // super.build(context);
     //var data = Provider.of<FavouriteProvider>(context);
     final Size size = MediaQuery.of(context).size;
+    final themeProvider = Provider.of<ThemeProvider>(context);
 
     return AnimatedContainer(
       height: MediaQuery.of(context).size.height,
@@ -57,7 +61,9 @@ class _HomeScreenState
         ..rotateY(isDrawerOpen ? -0.5 : 0),
       duration: Duration(milliseconds: 50),
       decoration: BoxDecoration(
-          color: Colors.white,
+          color: themeProvider.isLightTheme
+                                ? const Color(0xFFEEEEEE)
+                                : const Color(0xFF211C1A),
           borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
       child: GestureDetector(
         onTap: () {
@@ -124,7 +130,7 @@ class _HomeScreenState
                         : IconButton(
                             icon: Icon(
                               Icons.search,
-                              color: Colors.black.withOpacity(.8),
+                            //  color: Colors.black.withOpacity(.8),
                               size: 32,
                             ),
                             onPressed: () {

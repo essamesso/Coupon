@@ -1,3 +1,4 @@
+import 'package:badges/badges.dart';
 import 'package:copoun/DataLayer/Models/NewCouponmodel.dart';
 import 'package:copoun/DataLayer/Models/coupondb.dart';
 import 'package:copoun/DataLayer/Provider/dataprovider%20.dart';
@@ -43,12 +44,13 @@ class _GetCouponItemsState extends State<GetCouponItems> {
     List ids = getids(providercoupons.items);
     imageurl = !widget.isfav
         ? widget.values[widget.index].betterFeaturedImage.mediaDetails.sizes
-            .wpcouponSmallThumb.sourceUrl
+            .thumbnail.sourceUrl
         : widget.favcoupon.imageurl;
     return Padding(
       padding: const EdgeInsets.all(3),
       child:  InkWell(
             child: Card(
+              
               margin: EdgeInsets.only(top: 10 ,left: 5,right: 5),
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -103,13 +105,14 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                                             'id': widget.values[widget.index].id,
                                             'title': widget.values[widget.index]
                                                 .title.rendered,
-                                            'code': 'sdsdsd',
+                                            'code': widget.values[widget.index]
+                                                .wpcCouponTypeCode,
                                             'imageurl': widget
                                                 .values[widget.index]
                                                 .betterFeaturedImage
                                                 .mediaDetails
                                                 .sizes
-                                                .wpcouponSmallThumb
+                                                .thumbnail
                                                 .sourceUrl,
                                             'linksite': 'asasasasas.com',
                                           });
@@ -145,8 +148,8 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                             width: MediaQuery.of(context).size.width / 3,
                             height: 35,
                             child: RaisedButton(
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(12)),
+                             /* shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(12)),*/
                               color: Colors.orange,
                               child: Center(
                                   child: Text('تسوق الآن',
@@ -166,15 +169,17 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                               height: 35,
                               decoration: BoxDecoration(
                                   image: DecorationImage(
-                                      image: AssetImage("assets/images/copy.jpg"),
+                                      image: AssetImage("assets/images/copyy.png"),
                                       fit: BoxFit.fill)),
                               child: Row(
-                                mainAxisAlignment: MainAxisAlignment.center,
+                                mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   InkWell(
-                                    child: Text('sdsd'),
+                                    child: Text( widget.values[widget.index]
+                                                .wpcCouponTypeCode, style: TextStyle(color: Colors.white),),
                                     onTap: () async {
-                                      await FlutterClipboard.copy('sdsd');
+                                      await FlutterClipboard.copy(widget.values[widget.index]
+                                                .wpcCouponTypeCode,);
                                       Scaffold.of(context).showSnackBar(
                                         SnackBar(
                                             content: Text("✓  تم نسخ كود الخصم")),
@@ -184,13 +189,15 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                                   IconButton(
                                       icon: Icon(Icons.content_copy),
                                       onPressed: () async {
-                                        await FlutterClipboard.copy('sdsdsd');
+                                        await FlutterClipboard.copy(widget.values[widget.index]
+                                                .wpcCouponTypeCode,);
                                         Scaffold.of(context).showSnackBar(
                                           SnackBar(
                                               content:
                                                   Text("✓  تم نسخ كود الخصم")),
                                         );
-                                      })
+                                      }),
+                                      SizedBox(width: 1,),
                                 ],
                               ),
                             ),
@@ -215,5 +222,6 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                 ),
               ),*/
     );
+    
   }
 }

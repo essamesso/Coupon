@@ -1,4 +1,4 @@
-import 'package:copoun/DataLayer/Models/themeprovider.dart';
+import 'package:copoun/DataLayer/Provider/themeprovider.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 

@@ -1,6 +1,8 @@
+import 'package:copoun/DataLayer/Provider/themeprovider.dart';
 import 'package:copoun/presentationLayer/Pages/favourite/favourite_screen.dart';
 import 'package:copoun/presentationLayer/Pages/lightanddarkmod/Maindark_lightMode.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'contactUs.dart';
 import 'shareApp.dart';
 
@@ -12,8 +14,14 @@ class DrawerScreen extends StatefulWidget {
 class _DrawerScreenState extends State<DrawerScreen> {
   @override
   Widget build(BuildContext context) {
+    final themeProvider = Provider.of<ThemeProvider>(context);
+     final Color textcolor = themeProvider.isLightTheme
+                                ? const Color(0xFF0A0808)
+                                : const Color(0xFFE5D6D6);
     return Container(
-      color: Colors.grey[350],
+      color: themeProvider.isLightTheme
+                                ? const Color(0xFFEEEEEE)
+                                : const Color(0xFF1F1E1E),
       padding: EdgeInsets.only(top: 50, bottom: 70, left: 10),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -34,11 +42,11 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   Text(
                     'كوبونوفا',
                     style: TextStyle(
-                        color: Colors.black87, fontWeight: FontWeight.bold),
+                        color: textcolor, fontWeight: FontWeight.bold),
                   ),
                   Text('أحصل الآن علي أكواد خصم كوبونوفا',
                       style: TextStyle(
-                          color: Colors.black87, fontWeight: FontWeight.bold))
+                          color: textcolor, fontWeight: FontWeight.bold))
                 ],
               )
             ],
@@ -61,7 +69,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: Text(
                           "تغيير اللغة",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: textcolor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
@@ -93,7 +101,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: Text(
                           "الوضع الليلي والنهاري",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: textcolor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
@@ -125,7 +133,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: Text(
                           "تواصل معنا",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: textcolor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
@@ -155,7 +163,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: Text(
                           "قييم التطبيق",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: textcolor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
@@ -187,7 +195,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                         child: Text(
                           "شارك التطبيق",
                           style: TextStyle(
-                              color: Colors.black,
+                              color: textcolor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),

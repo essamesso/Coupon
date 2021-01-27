@@ -5,6 +5,7 @@ class BNBCustomPainter extends CustomPainter {
   @override
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
+    
       ..color = Colors.grey[200]
       ..style = PaintingStyle.fill;
     Path path = Path()..moveTo(0, 20);

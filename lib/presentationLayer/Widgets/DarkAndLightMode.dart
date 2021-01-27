@@ -1,6 +1,6 @@
 
 import 'package:copoun/DataLayer/Components/z_animated_toggle.dart';
-import 'package:copoun/DataLayer/Models/themeprovider.dart';
+import 'package:copoun/DataLayer/Provider/themeprovider.dart';
 import 'package:copoun/presentationLayer/Pages/bottomnav/bottomnav_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

@@ -1,36 +1,34 @@
-import 'package:copoun/configuration.dart';
+import 'package:copoun/DataLayer/Models/StoreModel.dart';
 import 'package:flutter/material.dart';
 
-class CategoryCardStores extends StatefulWidget {
+class CategoryCardStores extends StatelessWidget {
+  final List<StoreModel> storemodel;
   final int index;
-  CategoryCardStores({this.index});
-  @override
-  _CategoryCardStoresState createState() =>
-      _CategoryCardStoresState();
-}
+  CategoryCardStores({this.index, @required this.storemodel});
 
-class _CategoryCardStoresState extends State<CategoryCardStores> {
   @override
   Widget build(BuildContext context) {
-    return InkWell(
-      child: Container(
-        child: Column(
-          children: <Widget>[
-            CircleAvatar(
-              radius: 35,
-              backgroundImage: AssetImage(categories[widget.index]["iconPath"]),
-              backgroundColor: Theme.of(context).hintColor,
-            ),
-            Text(categories[widget.index]["name"]),
-          ],
+    if (storemodel != null)
+      return InkWell(
+        child: Container(
+          child: Column(
+            children: <Widget>[
+              CircleAvatar(
+                radius: 35,
+                backgroundImage:
+                    NetworkImage(storemodel[index].image),
+                backgroundColor: Theme.of(context).hintColor,
+              ),
+              Text(storemodel[index].name),
+            ],
+          ),
         ),
-      ),
-      onTap: () {
-        /*Navigator.push(
+        onTap: () {
+          /*Navigator.push(
                   context,
                   MaterialPageRoute(
                       builder: (context) => FavouritScreen()));*/
-      },
-    );
+        },
+      );
   }
 }
