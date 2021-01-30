@@ -29,12 +29,12 @@ class _HomeScreenState
   PageController _pageController = PageController();
 
   List<Widget> _screens = [
-    HomeWidget(),
+    HomeWiget(),
     FavouriteScreen(),
     Stores(),
     FavouriteScreen(),
-    HomeWidget()
-  ];
+    HomeWiget()
+      ];
 
   void _onPagechanged(int index) {
     setState(() {

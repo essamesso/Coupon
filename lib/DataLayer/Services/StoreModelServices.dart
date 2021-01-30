@@ -8,7 +8,7 @@ class StoreModelServices {
   
   Future<List<StoreModel>> getStoreModel() async {
     if (store == null) {
-      Response response = await get("https://couponava.com/wp-json/wp/v2/store");
+      Response response = await get("https://couponava.com/wp-json/wp/v2/store?per_page=100");
       final body = json.decode(response.body);
       if (response.statusCode == 200) {
         store = (body as List).map((i) => StoreModel.fromJson(i)).toList();

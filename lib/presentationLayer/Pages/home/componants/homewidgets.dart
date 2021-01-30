@@ -1,18 +1,38 @@
+import 'package:copoun/DataLayer/Models/StoreModel.dart';
+import 'package:copoun/DataLayer/Services/StoreModelServices.dart';
 import 'package:flutter/material.dart';
-
-import '../../../../configuration.dart';
 import 'listviewcoupon.dart';
-class HomeWidget extends StatelessWidget {
+
+class HomeWiget extends StatefulWidget {
+  @override
+  _HomeWigetState createState() => _HomeWigetState();
+}
+
+class _HomeWigetState extends State<HomeWiget> {
+  List<StoreModel> stores;
   @override
   Widget build(BuildContext context) {
     return  Scaffold(
           body: Column(children: [
                Container(
-                  height: 60,
+                  height: 70,
                   margin: EdgeInsets.only(top: 20),
-                  child: ListView.builder(
-                    scrollDirection: Axis.horizontal,
-                    itemCount: categories.length,
+                  child: FutureBuilder(
+            future: StoreModelServices().getStoreModel(),
+            builder: (context, AsyncSnapshot snapshot) {
+              switch (snapshot.connectionState) {
+                case ConnectionState.none:
+                case ConnectionState.waiting:
+                  return Center(child: CircularProgressIndicator());
+                default:
+                  if (snapshot.hasError) {
+                    return Text('error');
+                  } else {
+                    stores = snapshot.data;
+                    return Expanded(
+                      child: ListView.builder(
+                        scrollDirection: Axis.horizontal,
+                    itemCount: stores.length,
                     physics: BouncingScrollPhysics(),
                     itemBuilder: (context, index) {
                       return Container(
@@ -23,29 +43,32 @@ class HomeWidget extends StatelessWidget {
                               padding: const EdgeInsets.symmetric(horizontal: 5),
                               child: InkWell(
                                 child: Container(
-                                  child: ClipRRect(
-                                    borderRadius: BorderRadius.circular(30),
-                                    child: Image.asset(
-                                      categories[index]['iconPath'],
-                                      height: 50,
-                                      width: 50,
-                                      fit: BoxFit.fill,
-                                    ),
-                                  ),
+                                  child: CircleAvatar(
+                radius: 25,
+                backgroundImage:
+                    NetworkImage(stores[index].image),
+                backgroundColor: Theme.of(context).hintColor,
+              ),
                                 ),
                                 onTap: () {},
                               ),
                             ),
-                            //  Text(categories[index]['name'])
+                             Text(stores[index].name,style: TextStyle(fontSize: 10,fontWeight: FontWeight.bold),)
                           ],
                         ),
                       );
                     },
                   ),
+                    );
+                  }
+              }
+            },
+          ),
                 ),
                 CreateListView()
             ],
       ),
     );
   }
+
 }
