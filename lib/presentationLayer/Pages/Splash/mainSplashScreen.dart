@@ -51,8 +51,9 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
       curve: Interval(0.35, 0.60),
     );
     _animationBatmanIn = Tween(
-      begin: 5.0,
+      begin: .50,
       end: 1.0,
+      
     ).animate(
       CurvedAnimation(
         parent: _animationController,
@@ -105,10 +106,10 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
       animation: Listenable.merge([_animationController, _animationControllerSignUp]),
       builder: (context, _) {
         return Scaffold(
-          backgroundColor: Color(0xFF100F0B),
+        //  backgroundColor: Color(0xFF100F0B),
           body: Stack(
             children: [
-              Positioned(
+            /*  Positioned(
                 top: 0,
                 left: 0,
                 right: 0,
@@ -116,11 +117,11 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
                   'assets/images/batman_background.png',
                   fit: BoxFit.contain,
                 ),
-              ),
+              ),*/
               Positioned(
-                top: 0,
-                left: 0,
-                right: 0,
+                top: 90,
+                left: 30,
+                right: 30,
                 child: Transform.translate(
                   offset: Offset(
                       0.0,
@@ -129,8 +130,8 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
                   child: Transform.scale(
                     scale: _animationBatmanIn.value,
                     child: Image.asset(
-                      'assets/images/batman_alone.png',
-                      fit: BoxFit.contain,
+                      'assets/images/sss.png',
+                      fit: BoxFit.cover,
                     ),
                   ),
                 ),

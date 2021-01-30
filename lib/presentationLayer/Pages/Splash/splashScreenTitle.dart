@@ -13,11 +13,11 @@ class SplashScreenTitle extends AnimatedWidget {
         children: [
           Text(
             'WELCOME TO',
-            style: TextStyle(color: Colors.white, fontSize: 22),
+            style: TextStyle(color: Colors.black, fontSize: 22),
           ),
           Text(
             'Couponova',
-            style: TextStyle(color: Colors.white, fontSize: 35),
+            style: TextStyle(color: Colors.black, fontSize: 35),
           ),
         ],
       ),
