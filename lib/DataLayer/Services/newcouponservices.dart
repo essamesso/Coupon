@@ -6,7 +6,6 @@ import 'package:http/http.dart';
 
 class NewCouponServices {
   List<NewCoupon> categories;
-
   Future<List<NewCoupon>> getnewcoupon() async {
     if (categories == null) {
       Response response = await get(apiurl);
@@ -22,4 +21,6 @@ class NewCouponServices {
       return categories;
     }
   }
+
+  
 }

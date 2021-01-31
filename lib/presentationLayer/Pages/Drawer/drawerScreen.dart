@@ -78,10 +78,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => FavouriteScreen()));
+                  Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          duration: Duration(seconds: 1),
+                                            content:  Text("Comming soon"),
+                                            )
+                                      );
                 },
               ),
               InkWell(
@@ -110,7 +112,7 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(
+                  Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
                           builder: (context) => MainDarkAndLightMode()));
@@ -172,10 +174,12 @@ class _DrawerScreenState extends State<DrawerScreen> {
                   ),
                 ),
                 onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => FavouriteScreen()));
+                   Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          duration: Duration(seconds: 1),
+                                            content:Text("Comming soon"),
+                                            ),
+                                      );
                 },
               ),
               InkWell(
@@ -205,8 +209,13 @@ class _DrawerScreenState extends State<DrawerScreen> {
                 ),
                 onTap: () {
                   // Share.share("couponava soon!");
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => ShareData()));
+                  Scaffold.of(context).showSnackBar(
+              
+                                        SnackBar(
+                                          duration: Duration(seconds: 1),
+                                            content:Text("Comming soon"),
+                                            ),
+                                      );
                 },
               ),
             ],

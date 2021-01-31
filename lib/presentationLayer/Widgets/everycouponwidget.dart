@@ -1,5 +1,4 @@
 import 'package:copoun/DataLayer/Models/EveryStoreCouponModel.dart';
-import 'package:copoun/DataLayer/Models/NewCouponmodel.dart';
 import 'package:copoun/DataLayer/Models/coupondb.dart';
 import 'package:copoun/DataLayer/Provider/dataprovider%20.dart';
 import 'package:copoun/presentationLayer/Widgets/advanceCustomAlert.dart';
@@ -7,8 +6,8 @@ import 'package:clipboard/clipboard.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-class GetCouponItems extends StatefulWidget {
-  GetCouponItems({
+class GetEveryCouponStore extends StatefulWidget {
+  GetEveryCouponStore({
     Key key,
     this.values,
     this.index,
@@ -16,7 +15,7 @@ class GetCouponItems extends StatefulWidget {
     this.favcoupon,
   }) : super(key: key);
 
-  final List<NewCoupon> values;
+  final List<EveryStoreCouponModel> values;
   final int index;
   final bool isfav;
   final CouponModel favcoupon;
@@ -25,7 +24,7 @@ class GetCouponItems extends StatefulWidget {
   _GetCouponItemsState createState() => _GetCouponItemsState();
 }
 
-class _GetCouponItemsState extends State<GetCouponItems> {
+class _GetCouponItemsState extends State<GetEveryCouponStore> {
   String imageurl;
   bool isfavitemlist;
 
@@ -50,6 +49,7 @@ class _GetCouponItemsState extends State<GetCouponItems> {
       padding: const EdgeInsets.all(3),
       child:  InkWell(
             child: Card(
+              
               margin: EdgeInsets.only(top: 10 ,left: 5,right: 5),
               elevation: 3,
               shape: RoundedRectangleBorder(
@@ -157,8 +157,7 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                                           fontSize: 18,
                                           fontWeight: FontWeight.bold))),
                               onPressed: () {
-                                print('herrrr تسوق الان');
-                                Center(child: AdvanceCustomAlert());
+                                AdvanceCustomAlert();
                               },
                             ),
                           ),
@@ -175,14 +174,13 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                                 mainAxisAlignment: MainAxisAlignment.end,
                                 children: [
                                   InkWell(
-                                    child: Text(  '${!widget.isfav ? widget.values[widget.index]
-                                                .wpcCouponTypeCode:widget.favcoupon.code}', style: TextStyle(color: Colors.white),),
+                                    child: Text( widget.values[widget.index]
+                                                .wpcCouponTypeCode, style: TextStyle(color: Colors.white),),
                                     onTap: () async {
                                       await FlutterClipboard.copy(widget.values[widget.index]
                                                 .wpcCouponTypeCode,);
                                       Scaffold.of(context).showSnackBar(
                                         SnackBar(
-                                          padding: EdgeInsets.only(bottom: 50),
                                             content: Text("✓  تم نسخ كود الخصم")),
                                       );
                                     },
@@ -194,7 +192,6 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                                                 .wpcCouponTypeCode,);
                                         Scaffold.of(context).showSnackBar(
                                           SnackBar(
-                                            padding: EdgeInsets.only(bottom: 50),
                                               content:
                                                   Text("✓  تم نسخ كود الخصم")),
                                         );
@@ -209,7 +206,7 @@ class _GetCouponItemsState extends State<GetCouponItems> {
                     ],
                   )),
             ),
-            onTap: () {AdvanceCustomAlert();},
+            onTap: () {},
           ),
           /* Positioned(
                 top: -2,

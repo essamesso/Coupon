@@ -28,7 +28,7 @@ class _ContactUsState extends State<ContactUs> {
             }),
       ),
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.all(20),
         child: Container(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.end,
@@ -47,7 +47,7 @@ class _ContactUsState extends State<ContactUs> {
                     color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
               ),
               Text(
-                "للرد علي كل استفساراتكم واستقبال اقنراحاتكم",
+                "للرد علي كل استفساراتكم واستقبال اقتراحاتكم",
                 style: TextStyle(
                     color: Colors.black, fontWeight: FontWeight.bold, fontSize: 16),
               ),
@@ -76,8 +76,11 @@ class _ContactUsState extends State<ContactUs> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FavouriteScreen()));
+                        Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          padding: EdgeInsets.only(bottom: 50),
+                                            content: Text("Esameno245@gmail.com")),
+                                      );
                   },
                 ),
               ),
@@ -105,8 +108,11 @@ class _ContactUsState extends State<ContactUs> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FavouriteScreen()));
+                    Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          padding: EdgeInsets.only(bottom: 50),
+                                            content: Text("Esameno245@gmail.com")),
+                                      );
                   },
                 ),
               ),
@@ -134,8 +140,11 @@ class _ContactUsState extends State<ContactUs> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FavouriteScreen()));
+                     Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          padding: EdgeInsets.only(bottom: 50),
+                                            content: Text("Esameno245@gmail.com")),
+                                      );
                   },
                 ),
               ),
@@ -163,8 +172,11 @@ class _ContactUsState extends State<ContactUs> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FavouriteScreen()));
+                     Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          padding: EdgeInsets.only(bottom: 50),
+                                            content: Text("Esameno245@gmail.com")),
+                                      );
                   },
                 ),
               ),
@@ -192,8 +204,11 @@ class _ContactUsState extends State<ContactUs> {
                     ],
                   ),
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => FavouriteScreen()));
+                     Scaffold.of(context).showSnackBar(
+                                        SnackBar(
+                                          padding: EdgeInsets.only(bottom: 50),
+                                            content: Text("Esameno245@gmail.com")),
+                                      );
                   },
                 ),
               ),

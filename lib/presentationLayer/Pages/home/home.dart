@@ -8,7 +8,6 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'componants/homewidgets.dart';
 
-
 class HomeScreen extends StatefulWidget {
   @override
   _HomeScreenState createState() => _HomeScreenState();
@@ -34,7 +33,7 @@ class _HomeScreenState
     Stores(),
     FavouriteScreen(),
     HomeWiget()
-      ];
+  ];
 
   void _onPagechanged(int index) {
     setState(() {
@@ -53,7 +52,6 @@ class _HomeScreenState
     //var data = Provider.of<FavouriteProvider>(context);
     final Size size = MediaQuery.of(context).size;
     final themeProvider = Provider.of<ThemeProvider>(context);
-
     return AnimatedContainer(
       height: MediaQuery.of(context).size.height,
       transform: Matrix4.translationValues(xOffset, yOffset, 0)
@@ -62,8 +60,8 @@ class _HomeScreenState
       duration: Duration(milliseconds: 50),
       decoration: BoxDecoration(
           color: themeProvider.isLightTheme
-                                ? const Color(0xFFEEEEEE)
-                                : const Color(0xFF211C1A),
+              ?  Colors.white
+              : const Color(0xFF211C1A),
           borderRadius: BorderRadius.circular(isDrawerOpen ? 40 : 0.0)),
       child: GestureDetector(
         onTap: () {
@@ -78,7 +76,7 @@ class _HomeScreenState
         child: Stack(
           children: [
             Padding(
-              padding: EdgeInsets.only(top: currentTab != 2 ? 80 : 0),
+              padding: EdgeInsets.only(top: currentTab != 2 ? 90 : 0),
               child: PageView(
                 controller: _pageController,
                 children: _screens,
@@ -88,14 +86,20 @@ class _HomeScreenState
             ),
             if (currentTab != 2)
               Container(
-                margin: EdgeInsets.only(right: 10, left: 10, top: 20),
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(20),
+                ),
+                padding: EdgeInsets.symmetric(horizontal: 10).copyWith(
+                  top:10,
+                ),
+                margin: EdgeInsets.only(top: 20),
                 //___________app bar
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     isDrawerOpen
                         ? IconButton(
-                            icon: Icon(Icons.arrow_back),
+                            icon: Icon(Icons.arrow_back,size: 30,),
                             onPressed: () {
                               setState(() {
                                 xOffset = 0;
@@ -130,14 +134,14 @@ class _HomeScreenState
                         : IconButton(
                             icon: Icon(
                               Icons.search,
-                            //  color: Colors.black.withOpacity(.8),
+                              //  color: Colors.black.withOpacity(.8),
                               size: 32,
                             ),
                             onPressed: () {
                               Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => SearchPage()));
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => SearchPage()));
                             }),
                   ],
                 ),
@@ -174,14 +178,14 @@ class _HomeScreenState
                           IconButton(
                             icon: Icon(Icons.favorite,
                                 color: currentTab == 1
-                                    ? Colors.orange
+                                    ? Colors.red
                                     : Colors.black.withOpacity(.7)),
                             onPressed: () {
                               onItemTapped(1);
                             },
                           ),
                           IconButton(
-                            icon: Icon(Icons.bookmark,
+                            icon: Icon(Icons.store,
                                 color: currentTab == 2
                                     ? Colors.orange
                                     : Colors.black.withOpacity(.7)),

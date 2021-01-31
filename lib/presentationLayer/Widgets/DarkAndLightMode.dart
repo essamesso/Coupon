@@ -1,5 +1,5 @@
-
 import 'package:copoun/DataLayer/Components/z_animated_toggle.dart';
+import 'package:copoun/DataLayer/Provider/coupon_provider.dart';
 import 'package:copoun/DataLayer/Provider/themeprovider.dart';
 import 'package:copoun/presentationLayer/Pages/bottomnav/bottomnav_screen.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +23,7 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
         AnimationController(vsync: this, duration: Duration(milliseconds: 500));
     super.initState();
   }
+
   // function to toggle circle animation
   changeThemeMode(bool theme) {
     if (!theme) {
@@ -31,8 +32,10 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
       _animationController.reverse(from: 1.0);
     }
   }
+
   @override
   Widget build(BuildContext context) {
+    final CouponProvider providercoupons = Provider.of<CouponProvider>(context);
     double height = MediaQuery.of(context).size.height;
     double width = MediaQuery.of(context).size.width;
     // Now we have access to the theme properties
@@ -135,26 +138,16 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
                       vertical: height * 0.02, horizontal: width * 0.04),
                   alignment: Alignment.bottomCenter,
                   child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    mainAxisAlignment: MainAxisAlignment.end,
                     children: <Widget>[
-                      Padding(
-                        padding:
-                            EdgeInsets.symmetric(horizontal: width * 0.025),
-                        child: Text(
-                          'تخطي',
-                          style: TextStyle(
-                            fontSize: width * 0.045,
-                            color: const Color(0xFF7c7b7e),
-                            fontFamily: 'Rubik',
-                          ),
-                        ),
-                      ),
-                      //____________________ on press >>>>> go 
+                      //____________________ on press >>>>> go
                       RaisedButton(
                         onPressed: () {
-                           Navigator.push(context,MaterialPageRoute(builder: (context)=> BottomNavBar()));
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => BottomNavBar()));
                         },
-
                         shape: CircleBorder(),
                         color: themeProvider.isLightTheme
                             ? const Color(0xFFFFFFFF)
@@ -179,6 +172,7 @@ class _DarkAndLightModeState extends State<DarkAndLightMode>
       ),
     );
   }
+
 // for drawing the dots
   Container buildDot({double width, double height, Color color}) {
     return Container(

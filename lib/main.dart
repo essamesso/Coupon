@@ -36,6 +36,7 @@ void main() async {
     ],
     child: MaterialApp(
       home: MyApp(),
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(fontFamily: 'Circular'),
     ),
   ));
@@ -50,13 +51,11 @@ class _MyAppState extends State<MyApp> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(Duration(seconds: 6), () {
-      Navigator.pop(context);
-      Navigator.push(context,
+    Future.delayed(Duration(seconds: 5), () {
+      Navigator.pushReplacement(context,
           MaterialPageRoute(builder: (context) => MainDarkAndLightMode()));
     });
   }
-
   @override
   Widget build(BuildContext context) {
     return MainSplashScreen();

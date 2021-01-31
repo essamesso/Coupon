@@ -22,7 +22,8 @@ class BatmanSignUp extends StatefulWidget {
   _BatmanSignUpState createState() => _BatmanSignUpState();
 }
 
-class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMixin {
+class _BatmanSignUpState extends State<BatmanSignUp>
+    with TickerProviderStateMixin {
   AnimationController _animationController;
   Animation<double> _animationLogoIn;
   Animation<double> _animationLogoMovementUp;
@@ -51,9 +52,8 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
       curve: Interval(0.35, 0.60),
     );
     _animationBatmanIn = Tween(
-      begin: .50,
-      end: 1.0,
-      
+      begin: .70,
+      end: 1.3,
     ).animate(
       CurvedAnimation(
         parent: _animationController,
@@ -64,7 +64,7 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
         ),
       ),
     );
-   
+
     _animationController.forward();
   }
 
@@ -81,9 +81,7 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
       parent: _animationControllerSignUp,
       curve: Interval(0.35, 0.55),
     );
-    
   }
-
 
   @override
   void initState() {
@@ -102,14 +100,15 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
   @override
   Widget build(BuildContext context) {
     return AnimatedBuilder(
-      
-      animation: Listenable.merge([_animationController, _animationControllerSignUp]),
+      animation:
+          Listenable.merge([_animationController, _animationControllerSignUp]),
       builder: (context, _) {
         return Scaffold(
-        //  backgroundColor: Color(0xFF100F0B),
+          //backgroundColor: Colors.white.withOpacity(.8),
+
           body: Stack(
             children: [
-            /*  Positioned(
+              /*  Positioned(
                 top: 0,
                 left: 0,
                 right: 0,
@@ -119,9 +118,9 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
                 ),
               ),*/
               Positioned(
-                top: 90,
-                left: 30,
-                right: 30,
+                top: MediaQuery.of(context).size.height / 1.5,
+                left: 0,
+                right: 0,
                 child: Transform.translate(
                   offset: Offset(
                       0.0,
@@ -129,29 +128,31 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
                           -_animationBatmanUp.value * _batmanVerticalMovement),
                   child: Transform.scale(
                     scale: _animationBatmanIn.value,
-                    child: Image.asset(
-                      'assets/images/sss.png',
-                      fit: BoxFit.cover,
+                    child: Center(
+                      child: Text(
+                        'Get Free Coupons Now',
+                        style: TextStyle(color: Colors.orange, fontSize: 22),
+                      ),
                     ),
                   ),
                 ),
               ),
-            
               Positioned(
-                top: MediaQuery.of(context).size.height / 2,
-                left: 0,
-                right: 0,
+                top: MediaQuery.of(context).size.height / 3,
+                left: 30,
+                right: 30,
                 child: Column(
                   children: [
                     Transform.translate(
-                      offset: Offset(0.0, _batmanVerticalMovement * _animationLogoOut.value),
+                      offset: Offset(0.0,
+                          _batmanVerticalMovement * _animationLogoOut.value),
                       child: Opacity(
                         opacity: (1 - _animationLogoOut.value),
                         child: SplashScreenTitle(_animationLogoMovementUp),
                       ),
                     ),
                     const SizedBox(height: 35),
-                  /*  Transform.translate(
+                    /*  Transform.translate(
                       offset: Offset(0.0, _batmanVerticalMovement * _animationLogoOut.value),
                       child: Opacity(
                         opacity: (1 - _animationLogoOut.value),
@@ -162,8 +163,8 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
                 ),
               ),
               Positioned(
-                top:
-                    MediaQuery.of(context).size.height / 2.2 - _batmanVerticalMovement * _animationLogoMovementUp.value,
+                top: MediaQuery.of(context).size.height / 5 -
+                    _batmanVerticalMovement * _animationLogoMovementUp.value,
                 left: 0,
                 right: 0,
                 child: Opacity(
@@ -172,7 +173,7 @@ class _BatmanSignUpState extends State<BatmanSignUp> with TickerProviderStateMix
                     scale: _animationLogoIn.value,
                     child: Image.asset(
                       'assets/images/logo.png',
-                      height: 50,
+                      height: 100,
                       fit: BoxFit.contain,
                     ),
                   ),

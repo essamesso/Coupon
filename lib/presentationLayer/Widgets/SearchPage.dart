@@ -8,10 +8,10 @@ class SearchPage extends StatefulWidget {
 
 class _SearchPageState extends State<SearchPage> {
   List<LeaderBoard> list = <LeaderBoard>[
-    LeaderBoard("Flutter", 54),
-    LeaderBoard("React", 22.5),
-    LeaderBoard("Ionic", 24.7),
-    LeaderBoard("Xamarin", 22.1),
+    LeaderBoard("noon", 54),
+    LeaderBoard("souq.com", 22.5),
+    LeaderBoard("H&M", 24.7),
+    LeaderBoard("باث اند بدى", 22.1),
   ];
 
   LeaderBoard _selectedItem;

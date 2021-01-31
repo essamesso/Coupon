@@ -1,4 +1,5 @@
 import 'package:copoun/DataLayer/Models/StoreModel.dart';
+import 'package:copoun/presentationLayer/Pages/everystorecoupon/everystorecoupon_screen.dart';
 import 'package:flutter/material.dart';
 
 class CategoryCardStores extends StatelessWidget {
@@ -13,21 +14,30 @@ class CategoryCardStores extends StatelessWidget {
         child: Container(
           child: Column(
             children: <Widget>[
-              CircleAvatar(
-                radius: 35,
-                backgroundImage:
-                    NetworkImage(storemodel[index].image),
-                backgroundColor: Theme.of(context).hintColor,
+              Hero(
+                tag: storemodel[index].name,
+                child: CircleAvatar(
+                  radius: 35,
+                  backgroundImage: NetworkImage(storemodel[index].image),
+                  backgroundColor: Theme.of(context).hintColor,
+                ),
               ),
-              Text(storemodel[index].name),
+              Text(
+                storemodel[index].name,
+                maxLines: 2,
+              ),
             ],
           ),
         ),
         onTap: () {
-          /*Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (context) => FavouritScreen()));*/
+          var id = storemodel[index].id;
+          Navigator.push(
+              context,
+              MaterialPageRoute(
+                  builder: (context) => EveryStoreCoupon(
+                      id: id,
+                      title: storemodel[index].name,
+                      image: storemodel[index].image)));
         },
       );
   }

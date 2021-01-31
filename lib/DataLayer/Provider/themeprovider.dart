@@ -8,7 +8,6 @@ class ThemeProvider with ChangeNotifier {
   bool isLightTheme;
 
   ThemeProvider({this.isLightTheme});
-
   // the code below is to manage the status bar color when the theme changes
   getCurrentStatusNavigationBarColor() {
     if (isLightTheme) {
@@ -43,12 +42,11 @@ class ThemeProvider with ChangeNotifier {
   ThemeData themeData() {
     return ThemeData(
       visualDensity: VisualDensity.adaptivePlatformDensity,
-      primarySwatch: isLightTheme ? Colors.grey : Colors.grey,
       primaryColor: isLightTheme ? Colors.white : Color(0xFF1E1F28),
       brightness: isLightTheme ? Brightness.light : Brightness.dark,
-      backgroundColor: isLightTheme ? Color(0xFFFFFFFF) : Color(0xFF26242e),
+      backgroundColor: isLightTheme ? Colors.white : Color(0xFF26242e),
       scaffoldBackgroundColor:
-          isLightTheme ? Color(0xFFFFFFFF) : Color(0xFF26242e),
+          isLightTheme ? Colors.white : Color(0xFF26242e),
     );
   }
 
