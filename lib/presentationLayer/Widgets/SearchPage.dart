@@ -1,3 +1,4 @@
+import 'package:copoun/DataLayer/Models/NewCouponmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:search_widget/search_widget.dart';
 
@@ -7,14 +8,9 @@ class SearchPage extends StatefulWidget {
 }
 
 class _SearchPageState extends State<SearchPage> {
-  List<LeaderBoard> list = <LeaderBoard>[
-    LeaderBoard("noon", 54),
-    LeaderBoard("souq.com", 22.5),
-    LeaderBoard("H&M", 24.7),
-    LeaderBoard("باث اند بدى", 22.1),
-  ];
+  List<NewCoupon> list ;
 
-  LeaderBoard _selectedItem;
+  NewCoupon _selectedItem;
 
   bool _show = true;
 
@@ -31,13 +27,13 @@ class _SearchPageState extends State<SearchPage> {
                 height: 20,
               ),
               if (_show)
-                SearchWidget<LeaderBoard>(
+                SearchWidget<NewCoupon>(
                   dataList: list,
                   hideSearchBoxWhenItemSelected: false,
                   listContainerHeight: MediaQuery.of(context).size.height / 4,
                   queryBuilder: (query, list) {
                     return list
-                        .where((item) => item.username
+                        .where((item) => item.title.rendered
                             .toLowerCase()
                             .contains(query.toLowerCase()))
                         .toList();
@@ -63,7 +59,7 @@ class _SearchPageState extends State<SearchPage> {
                 height: 32,
               ),
               Text(
-                "${_selectedItem != null ? _selectedItem.username : ""
+                "${_selectedItem != null ? _selectedItem.content : ""
                     "لا توجد بيانات لعرضها"}",
               ),
             ],
@@ -83,17 +79,17 @@ class _SearchPageState extends State<SearchPage> {
   }
 }
 
-class LeaderBoard {
+/*class LeaderBoard {
   LeaderBoard(this.username, this.score);
 
   final String username;
   final double score;
-}
+}*/
 
 class SelectedItemWidget extends StatelessWidget {
   const SelectedItemWidget(this.selectedItem, this.deleteSelectedItem);
 
-  final LeaderBoard selectedItem;
+  final NewCoupon selectedItem;
   final VoidCallback deleteSelectedItem;
 
   @override
@@ -114,7 +110,7 @@ class SelectedItemWidget extends StatelessWidget {
                 bottom: 8,
               ),
               child: Text(
-                selectedItem.username,
+                selectedItem.title.rendered,
                 style: const TextStyle(fontSize: 14),
               ),
             ),
@@ -225,14 +221,14 @@ class NoItemsFound extends StatelessWidget {
 class PopupListItemWidget extends StatelessWidget {
   const PopupListItemWidget(this.item);
 
-  final LeaderBoard item;
+  final NewCoupon item;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.all(12),
       child: Text(
-        item.username,
+        item.title.rendered,
         style: const TextStyle(fontSize: 16),
       ),
     );

@@ -2,7 +2,7 @@ import 'package:copoun/DataLayer/Provider/themeprovider.dart';
 import 'package:copoun/presentationLayer/Pages/favourite/favourite_screen.dart';
 import 'package:copoun/presentationLayer/Pages/stores/Stores.dart';
 import 'package:copoun/presentationLayer/Widgets/BNBCustomPainter.dart';
-import 'package:copoun/presentationLayer/Widgets/SearchPage.dart';
+import 'package:copoun/presentationLayer/Widgets/searchstate.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -138,10 +138,14 @@ class _HomeScreenState
                               size: 32,
                             ),
                             onPressed: () {
-                              Navigator.push(
+                               showSearch(
+                    context: context,
+                    delegate: CustomSearchDelegate(),
+                  );
+                            /*  Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => SearchPage()));
+                                      builder: (context) => SearchState()));*/
                             }),
                   ],
                 ),
@@ -178,7 +182,7 @@ class _HomeScreenState
                           IconButton(
                             icon: Icon(Icons.favorite,
                                 color: currentTab == 1
-                                    ? Colors.red
+                                    ? Colors.orange
                                     : Colors.black.withOpacity(.7)),
                             onPressed: () {
                               onItemTapped(1);

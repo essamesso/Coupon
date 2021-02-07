@@ -118,6 +118,17 @@ class HomeWiget extends StatelessWidget {
                       },
                     ),*/
                 ),
+                 Align(
+      alignment: Alignment.centerLeft,
+      child:  Padding(
+        padding: const EdgeInsets.all(10),
+        child: Text(
+            "All new Coupons",
+            style: TextStyle(fontWeight: FontWeight.bold),
+          ),
+      ),
+      
+    ),
                 CreateListView()
               ],
             ),
